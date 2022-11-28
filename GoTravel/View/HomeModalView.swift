@@ -7,6 +7,28 @@
 
 import SwiftUI
 
+struct CategoryIcon: View {
+    var title: String
+    var icon: String
+    var color: Color
+    var bgColor: Color
+    
+    var body: some View {
+        VStack {
+            Image(systemName: icon)
+                .resizable()
+                .frame(width: 30, height: 30)
+                .foregroundStyle(color)
+            Text(title)
+                .font(.system(size: 18))
+        }
+        .padding()
+        .background(bgColor.opacity(0.03))
+        .cornerRadius(5)
+        
+    }
+}
+
 struct ModalView: View {
     // MARK: - PROPERTIES
     @Environment(\.openURL) var openURL
@@ -30,13 +52,13 @@ struct ModalView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    CardListView(title: "Walk", icon: "figure.walk.motion", color: .green, bgColor: .blue)
+                    CategoryIcon(title: "Walk", icon: "figure.walk.motion", color: .green, bgColor: .blue)
                     
-                    CardListView(title: "Food", icon: "fork.knife.circle.fill", color: .orange, bgColor: .blue)
+                    CategoryIcon(title: "Food", icon: "fork.knife.circle.fill", color: .orange, bgColor: .blue)
                     
-                    CardListView(title: "Stays", icon: "house.fill", color: .blue, bgColor: .blue)
+                    CategoryIcon(title: "Stays", icon: "house.fill", color: .blue, bgColor: .blue)
                     
-                    CardListView(title: "Rids", icon: "sailboat.fill", color: .purple, bgColor: .blue)
+                    CategoryIcon(title: "Rids", icon: "sailboat.fill", color: .purple, bgColor: .blue)
                 } //: HStack
             }
             
@@ -66,7 +88,7 @@ struct ModalView: View {
                         LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .leading, endPoint: .trailing)
                     )
                     .foregroundColor(.white)
-                    .cornerRadius(40)
+                    .cornerRadius(47)
                 })
             } //: HStack
             
@@ -83,24 +105,4 @@ struct ModalView_Previews: PreviewProvider {
 }
 
 
-struct CardListView: View {
-    var title: String
-    var icon: String
-    var color: Color
-    var bgColor: Color
-    
-    var body: some View {
-        VStack {
-            Image(systemName: icon)
-                .resizable()
-                .frame(width: 30, height: 30)
-                .foregroundStyle(color)
-            Text(title)
-                .font(.system(size: 18))
-        }
-        .padding()
-        .background(bgColor.opacity(0.03))
-        .cornerRadius(5)
-        
-    }
-}
+

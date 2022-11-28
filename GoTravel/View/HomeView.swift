@@ -35,8 +35,8 @@ struct HomeView: View {
             .toolbar(content: {
                 ToolbarItem(placement: .principal) {
                     VStack {
-                        Text("GoTravel")
-                            .font(.headline)
+                        Text("Travel")
+                            .font(.title3)
                             .foregroundColor(.white)
                     }
                 }
